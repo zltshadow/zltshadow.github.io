@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>css居中方案</title>
+  <style>
+    .outer {
+      width: 200px;
+      height: 200px;
+      background: red;
+    }
+
+    .inner {
+      background: blue;
+    }
+
+    #parent1 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #child1 {
+      /*设置子元素margin后可以不需要设置父元素的align-items以及justify-content*/
+      margin: auto;
+    }
+
+    #parent2 {
+      display: grid;
+      align-items: center;
+      justify-items: center;
+    }
+
+    #child2 {
+      /*align-self,justify-self后可以不需要设置父元素的align-items以及justify-items*/
+      align-self: center;
+      justify-self: center;
+    }
+
+    #parent3 {
+      position: relative;
+    }
+
+    #child3 {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    #parent4 {
+      text-align: center;
+      line-height: 200px;
+    }
+
+    #child4 {
+      display: inline-block;
+      vertical-align: middle;
+      line-height: initial;
+    }
+
+    #parent5 {
+      /* wrinting-mode会修改文字显示方向 */
+      writing-mode: vertical-lr;
+      text-align: center;
+      line-height: 200px;
+    }
+
+    #child5 {
+      writing-mode: horizontal-tb;
+      display: inline-block;
+      line-height: initial;
+    }
+
+    #parent6 {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+    }
+
+    #child6 {
+      display: inline-block;
+    }
+
+    .red {
+      color: red
+    }
+
+    .blue {
+      color: blue
+    }
+  </style>
+</head>
+
+<body>
+  <h2>CSS居中方案</h2>
+  <h3>1.flex布局</h3>
+  <div id="parent1" class="outer">
+    <div id="child1" class="inner">测试居中文本</div>
+  </div>
+  <h3>2.grid布局</h3>
+  <div id="parent2" class="outer">
+    <div id="child2" class="inner">测试居中文本</div>
+  </div>
+  <h3>3.absolute + transform(在已知宽高居中元素上可变种为-margin,margin auto以及calc)</h3>
+  <div id="parent3" class="outer">
+    <div id="child3" class="inner">测试居中文本</div>
+  </div>
+  <h3>4.inlineblock+vertical-align+text-align+line-height</h3>
+  <div id="parent4" class="outer">
+    <div id="child4" class="inner">测试居中文本</div>
+  </div>
+  <h3>5.inlineblock+writing-mode+line-height</h3>
+  <div id="parent5" class="outer">
+    <div id="child5" class="inner">测试居中文本</div>
+  </div>
+  <h3>6.tablecell</h3>
+  <div id="parent6" class="outer">
+    <div id="child6" class="inner">测试居中文本</div>
+  </div>
+  <h2>CSS常见问题</h2>
+  <ul>
+    <li>
+      <h3>1.多class问题（HTML元素中 class 的顺序并不重要,style部分中的 class 声明的顺序是重要的，第二个声明将始终优先于第一个声明,所以blue先于red）</h3>
+      <div class="red blue">123</div>
+      <div class="blue red">123</div>
+    </li>
+  </ul>
+</body>
+
+</html>
