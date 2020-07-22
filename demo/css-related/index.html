@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>css居中方案</title>
+  <title>css常见demo</title>
   <style>
     .outer {
       width: 200px;
@@ -91,6 +91,177 @@
     .blue {
       color: blue
     }
+
+    .cols-3-layout-parent {
+      width: 98%;
+      height: 100px;
+    }
+
+    .cols-3-layout-parent-left,
+    .cols-3-layout-parent-right {
+      width: 200px;
+      height: 100px;
+      background-color: #999;
+    }
+
+    .cols-3-layout-parent-center {
+      height: 100px;
+      background-color: #f00;
+    }
+
+    #parent7 {
+      display: grid;
+      grid-template-columns: 200px auto 200px;
+    }
+
+    #parent8 {
+      display: flex;
+    }
+
+    #parent8-center {
+      flex-grow: 1;
+    }
+
+    #parent9-left {
+      float: left;
+    }
+
+    #parent9-right {
+      float: right;
+    }
+
+    #parent9-center {
+      margin: 0 200px;
+    }
+
+    #parent10 {
+      position: relative;
+    }
+
+    #parent10-left {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    #parent10-right {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    #parent10-center {
+      margin: 0 200px;
+    }
+
+    #parent11 {
+      font-size: 0;
+    }
+
+    #parent11-left,
+    #parent11-right,
+    #parent11-center {
+      display: inline-block;
+      font-size: 16px;
+    }
+
+    #parent11-center {
+      width: calc(100% - 200px - 200px);
+    }
+
+    #parent12 {
+      padding: 0 200px;
+      box-sizing: border-box;
+    }
+
+    #parent12-left,
+    #parent12-right,
+    #parent12-center {
+      float: left;
+    }
+
+    #parent12-left {
+      margin-left: -200px;
+    }
+
+    #parent12-right {
+      margin-right: -200px;
+    }
+
+    #parent12-center {
+      width: 100%;
+    }
+
+    #parent13-left,
+    #parent13-right,
+    #parent13-center-warpper {
+      float: left;
+    }
+
+    #parent13-left {
+      margin-left: -100%;
+    }
+
+    #parent13-right {
+      margin-left: -200px;
+    }
+
+    #parent13-center {
+      margin: 0 200px;
+    }
+
+    #parent13-center-warpper {
+      width: 100%;
+    }
+
+    .sticky-footer-tip {
+      margin: 10px 0;
+      font-size: 14px;
+    }
+    #sticky-footer-add,
+    #sticky-footer-clear {
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 4px;
+      padding: 5px 10px;
+      font-size: 14px;
+      color: #fff;
+      background-color: #f85f2f;
+      cursor: pointer;
+      -webkit-appearance: none;
+      margin-right: 10px;
+    }
+    
+    .sticky-footer-container {
+      display: grid;
+      grid-template-rows: 1fr auto;
+      /*关键：flex布局*/
+      /* display: flex; */
+      flex-direction: column;
+      width: 240px;
+      height: 360px;
+      overflow-y: scroll;
+      -webkit-overflow-scrolling: touch;
+    }
+    .sticky-footer-content {
+      /*关键：flex为1，有多余空间就增大，所以始终往下撑*/
+      /* flex: 1; */
+      width: 100%;
+      text-align: center;
+      color: #fff;
+      font-size: 20px;
+      background-color: #71a8da;
+      min-height: calc(100% - 60px);
+    }
+    .sticky-footer-footer {
+      height: 60px;
+      width: 100%;
+      line-height: 60px;
+      text-align: center;
+      color: #fff;
+      font-size: 20px;
+      background-color: #f85f2f;
+    }
   </style>
 </head>
 
@@ -128,6 +299,84 @@
       <div class="blue red">123</div>
     </li>
   </ul>
+
+  <h2>常见布局实现方式</h2>
+  <ul>
+    <li>
+      <h3>1.CSS三列布局（grid,flex,float,absolute,calc）</h3>
+      <h4>grid</h4>
+      <div id="parent7" class="cols-3-layout-parent">
+        <div id="parent7-left" class="cols-3-layout-parent-left">left</div>
+        <div id="parent7-center" class="cols-3-layout-parent-center">center</div>
+        <div id="parent7-right" class="cols-3-layout-parent-right">right</div>
+      </div>
+      <h4>flex</h4>
+      <div id="parent8" class="cols-3-layout-parent">
+        <div id="parent8-left" class="cols-3-layout-parent-left">left</div>
+        <div id="parent8-center" class="cols-3-layout-parent-center">center</div>
+        <div id="parent8-right" class="cols-3-layout-parent-right">right</div>
+      </div>
+      <h4>float(center需要在left跟right之后)</h4>
+      <div id="parent9" class="cols-3-layout-parent">
+        <div id="parent9-left" class="cols-3-layout-parent-left">left</div>
+        <div id="parent9-right" class="cols-3-layout-parent-right">right</div>
+        <div id="parent9-center" class="cols-3-layout-parent-center">center</div>
+      </div>
+      <h4>absolute</h4>
+      <div id="parent10" class="cols-3-layout-parent">
+        <div id="parent10-left" class="cols-3-layout-parent-left">left</div>
+        <div id="parent10-center" class="cols-3-layout-parent-center">center</div>
+        <div id="parent10-right" class="cols-3-layout-parent-right">right</div>
+      </div>
+      <h4>calc</h4>
+      <div id="parent11" class="cols-3-layout-parent">
+        <div id="parent11-left" class="cols-3-layout-parent-left">left</div>
+        <div id="parent11-center" class="cols-3-layout-parent-center">center</div>
+        <div id="parent11-right" class="cols-3-layout-parent-right">right</div>
+      </div>
+      <h4>圣杯布局</h4>
+      <div id="parent12" class="cols-3-layout-parent">
+        <div id="parent12-left" class="cols-3-layout-parent-left">left</div>
+        <div id="parent12-center" class="cols-3-layout-parent-center">center</div>
+        <div id="parent12-right" class="cols-3-layout-parent-right">right</div>
+      </div>
+      <h4>双飞翼布局</h4>
+      <div id="parent13" class="cols-3-layout-parent">
+        <div id="parent13-center-warpper">
+          <div id="parent13-center" class="cols-3-layout-parent-center">center</div>
+        </div>
+        <div id="parent13-left" class="cols-3-layout-parent-left">left</div>
+        <div id="parent13-right" class="cols-3-layout-parent-right">right</div>
+      </div>
+    </li>
+    <li>
+      <h3>2.sticky footer(flex,grid)</h3>
+      <p class="sticky-footer-tip">通过点击添加/清空按钮，查看内容增/减对页脚的影响</p>
+      <p class="sticky-footer-tip">提示：多点几次添加，让内容超过一屏，然后上下滑动查看效果</p>
+      <button id="sticky-footer-add">"添加一段话"</button>
+      <button id="sticky-footer-clear">清空</button>
+      <div class="sticky-footer-container">
+        <div class="sticky-footer-content" id="sticky-footer-content">
+          <p>这里是内容</p>
+        </div>
+        <div class="sticky-footer-footer">这里是页脚</div>
+      </div>
+    </li>
+  </ul>
+  <script>
+    //sticky-footerJS部分
+    let addBtn = document.getElementById('sticky-footer-add')
+    let clearBtn = document.getElementById('sticky-footer-clear')
+    let content = document.getElementById('sticky-footer-content')
+    addBtn.addEventListener('click', () => {
+      let p = document.createElement('p')
+      p.innerText = '内容逐渐变多了'
+      content.append(p)
+    })
+    clearBtn.addEventListener('click', () => {
+      content.innerHTML = '<p>这里是内容</p>'
+    })
+  </script>
 </body>
 
 </html>
