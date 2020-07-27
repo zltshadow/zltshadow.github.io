@@ -335,6 +335,22 @@
       left: 0;
       color: red;
     }
+    .bubble-container{
+      position: relative;
+      display: inline-block;
+      padding: 10px;
+      background: greenyellow;
+      border-radius: 5px;
+    }
+    .bubble-container::after{
+      position: absolute;
+      content: "";
+      top: 10px;
+      left: -10px;
+      border-width: 6px 10px;
+      border-style: solid;
+      border-color: greenyellow greenyellow transparent transparent;
+    }
   </style>
 </head>
 
@@ -436,7 +452,7 @@
       </div>
     </li>
     <li>
-      <h3>九宫格布局</h3>
+      <h3>3.九宫格布局</h3>
       <h4>1.grid方式</h4>
       <div class="square-container" id="square-grid-container">
         <div class="square-inner">1</div>
@@ -486,6 +502,9 @@
         <div class="square-inner square-inner-cloumns">9</div>
       </div>
     </li>
+    <li>
+      <h3>4.瀑布流布局</h3>
+    </li>
   </ul>
 
   <h2>常见效果</h2>
@@ -502,7 +521,8 @@
       </div>
     </li>
     <li>
-      <h3>2.瀑布流布局</h3>
+      <h3>2.css实现气泡</h3>
+      <div class="bubble-container">气泡文本</div>
     </li>
   </ul>
   <script>
