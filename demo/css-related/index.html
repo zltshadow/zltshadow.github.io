@@ -266,29 +266,53 @@
       background-color: #f85f2f;
     }
 
-    /* 基础 */
-    .box{
-      background: #e4f7fd61;
-      border: 2px solid #0786ada1;
-      border-radius: 8px;
-    }
+    /* 九宫格 */
     .square-container {
       background: #e4f7fd61;
-      border: 2px solid #0786ada1;
       border-radius: 8px;
+      width: 100%;
     }
 
     .square-inner {
       text-align: center;
-      line-height: 200px;
       background: rgba(146, 203, 230, 0.65);
       border-radius: 8px;
+      line-height: 100px;
+      border: 1px solid #0786ada1;
     }
 
-    #square-grid-container{
+    #square-grid-container {
       display: grid;
-      grid-template-columns: repeat(3,1fr);
-      grid-template-rows: repeat(3,1fr);
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+    }
+
+    #square-flex-container {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    .square-inner-flex {
+      flex: 1 1 30%;
+    }
+
+    #square-calc-container {
+      font-size: 0;
+    }
+
+    .square-inner-calc {
+      display: inline-block;
+      box-sizing: border-box;
+      width: calc(1/3*100%);
+      font-size: 16px;
+    }
+
+    #square-cloumns-container {
+      columns:3;
+      -moz-columns:3; /* Firefox */
+      -webkit-columns:3; /* Safari 和 Chrome */
+      column-gap: 0;
     }
   </style>
 </head>
@@ -392,17 +416,53 @@
     </li>
     <li>
       <h3>九宫格布局</h3>
-      <h4>grid方式</h4>
+      <h4>1.grid方式</h4>
       <div class="square-container" id="square-grid-container">
-          <div class="square-inner">1</div>
-          <div class="square-inner">2</div>
-          <div class="square-inner">3</div>
-          <div class="square-inner">4</div>
-          <div class="square-inner">5</div>
-          <div class="square-inner">6</div>
-          <div class="square-inner">7</div>
-          <div class="square-inner">8</div>
-          <div class="square-inner">9</div>
+        <div class="square-inner">1</div>
+        <div class="square-inner">2</div>
+        <div class="square-inner">3</div>
+        <div class="square-inner">4</div>
+        <div class="square-inner">5</div>
+        <div class="square-inner">6</div>
+        <div class="square-inner">7</div>
+        <div class="square-inner">8</div>
+        <div class="square-inner">9</div>
+      </div>
+      <h4>2.flex方式</h4>
+      <div class="square-container" id="square-flex-container">
+        <div class="square-inner square-inner-flex">1</div>
+        <div class="square-inner square-inner-flex">2</div>
+        <div class="square-inner square-inner-flex">3</div>
+        <div class="square-inner square-inner-flex">4</div>
+        <div class="square-inner square-inner-flex">5</div>
+        <div class="square-inner square-inner-flex">6</div>
+        <div class="square-inner square-inner-flex">7</div>
+        <div class="square-inner square-inner-flex">8</div>
+        <div class="square-inner square-inner-flex">9</div>
+      </div>
+      <h4>3.calc方式(百分比)</h4>
+      <div class="square-container" id="square-calc-container">
+        <div class="square-inner square-inner-calc">1</div>
+        <div class="square-inner square-inner-calc">2</div>
+        <div class="square-inner square-inner-calc">3</div>
+        <div class="square-inner square-inner-calc">4</div>
+        <div class="square-inner square-inner-calc">5</div>
+        <div class="square-inner square-inner-calc">6</div>
+        <div class="square-inner square-inner-calc">7</div>
+        <div class="square-inner square-inner-calc">8</div>
+        <div class="square-inner square-inner-calc">9</div>
+      </div>
+      <h4>4.cloumns方式</h4>
+      <div class="square-container" id="square-cloumns-container">
+        <div class="square-inner square-inner-cloumns">1</div>
+        <div class="square-inner square-inner-cloumns">2</div>
+        <div class="square-inner square-inner-cloumns">3</div>
+        <div class="square-inner square-inner-cloumns">4</div>
+        <div class="square-inner square-inner-cloumns">5</div>
+        <div class="square-inner square-inner-cloumns">6</div>
+        <div class="square-inner square-inner-cloumns">7</div>
+        <div class="square-inner square-inner-cloumns">8</div>
+        <div class="square-inner square-inner-cloumns">9</div>
       </div>
     </li>
   </ul>
