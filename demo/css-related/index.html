@@ -309,10 +309,31 @@
     }
 
     #square-cloumns-container {
-      columns:3;
-      -moz-columns:3; /* Firefox */
-      -webkit-columns:3; /* Safari 和 Chrome */
+      columns: 3;
+      -moz-columns: 3;
+      -webkit-columns: 3;
       column-gap: 0;
+    }
+
+    .score-container {
+      position: relative;
+      display: inline-block;
+      font-size: 30px;
+    }
+
+    .score-bg {
+      display: inline-block;
+      color: gray;
+    }
+
+    .score-show {
+      display: inline-block;
+      overflow: hidden;
+      width: 66%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: red;
     }
   </style>
 </head>
@@ -466,6 +487,24 @@
       </div>
     </li>
   </ul>
+
+  <h2>常见效果</h2>
+  <ul>
+    <li>
+      <h3>1.星星评分（也可用镂空星星图片）</h3>
+      <div>
+        <label>输入分数(0-5分)：</label>
+        <input id="score-count" type="number" min="0" max="5" step='0.1'>
+      </div>
+      <div class="score-container">
+        <div class="score-bg">★★★★★</div>
+        <div class="score-show">★★★★★</div>
+      </div>
+    </li>
+    <li>
+      <h3>2.瀑布流布局</h3>
+    </li>
+  </ul>
   <script>
     //sticky-footerJS部分
     let addBtn = document.getElementById('sticky-footer-add')
@@ -478,6 +517,13 @@
     })
     clearBtn.addEventListener('click', () => {
       content.innerHTML = '<p>这里是内容</p>'
+    })
+    // 星星评分
+    document.getElementById('score-count').addEventListener('change', function (e) {
+      let score = e.target.value;
+      if (score >= 0 && score <= 5) {
+        document.getElementsByClassName('score-show')[0].style.width = score / 5 * 100 + '%';
+      }
     })
   </script>
 </body>
