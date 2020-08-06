@@ -392,6 +392,20 @@
       border-style: solid;
       border-color: transparent transparent red red;
     }
+
+    #masonry-multi-column-container {
+      column-count: 2;
+      width: 300px;
+    }
+
+    .masonry-multi-column-item {
+      border: 1px solid #999;
+      margin-bottom: 10px;
+    }
+
+    .masonry-multi-column-item img {
+      width: 100%;
+    }
   </style>
 </head>
 
@@ -545,6 +559,7 @@
     </li>
     <li>
       <h3>4.瀑布流布局</h3>
+      <div class="masonry" id="masonry-multi-column-container"></div>
     </li>
   </ul>
 
@@ -593,6 +608,14 @@
         document.getElementsByClassName('score-show')[0].style.width = score / 5 * 100 + '%';
       }
     })
+    // 瀑布流布局
+    let tempHtml = '';
+    for (let i = 0; i < 10; i++) {
+      tempHtml +=
+        `<div class="masonry-multi-column-item"><img src="../../assets/images/masonry/test-${i<9?'0'+(i+1):i+1}.jpg"></div>`;
+    }
+    // console.log(tempMasonry.innerHTML);
+    document.getElementById('masonry-multi-column-container').innerHTML = tempHtml;
   </script>
 </body>
 
