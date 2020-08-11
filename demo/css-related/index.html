@@ -393,9 +393,12 @@
       border-color: transparent transparent red red;
     }
 
+    .masonry-container {
+      width: 60%;
+    }
+
     #masonry-multi-column-container {
       column-count: 2;
-      width: 300px;
     }
 
     .masonry-multi-column-item {
@@ -404,6 +407,25 @@
     }
 
     .masonry-multi-column-item img {
+      width: 100%;
+    }
+
+    #masonry-flex-container {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    .masonry-flex-item {
+      width: calc(100%/2 - 20px);
+      flex-direction: column;
+    }
+
+    .masonry-flex-item:nth-of-type(2n+1) {
+      margin-right: 20px;
+    }
+
+    .masonry-flex-item img {
       width: 100%;
     }
   </style>
@@ -559,7 +581,12 @@
     </li>
     <li>
       <h3>4.瀑布流布局</h3>
-      <div class="masonry" id="masonry-multi-column-container"></div>
+      <h4>multi-column方式</h4>
+      <div class="masonry-container" id="masonry-multi-column-container"></div>
+      <h4>flex方式</h4>
+      <div class="masonry-container" id="masonry-flex-container"></div>
+      <h4>js方式</h4>
+      <div class="masonry-container" id="masonry-js-container"></div>
     </li>
   </ul>
 
@@ -612,10 +639,71 @@
     let tempHtml = '';
     for (let i = 0; i < 10; i++) {
       tempHtml +=
-        `<div class="masonry-multi-column-item"><img src="../../assets/images/masonry/test-${i<9?'0'+(i+1):i+1}.jpg"></div>`;
+        `<div class="masonry-multi-column-item"><img src="../../assets/images/masonry/test-${i<9?'0'+(i+1):i+1}.jpg"><span class="username">多行测试瀑布流文本</span></div>`;
     }
     // console.log(tempMasonry.innerHTML);
     document.getElementById('masonry-multi-column-container').innerHTML = tempHtml;
+
+    tempHtml = '';
+    for (let i = 0; i < 10; i++) {
+      tempHtml +=
+        `<div class="masonry-flex-item"><img src="../../assets/images/masonry/test-${i<9?'0'+(i+1):i+1}.jpg"><span class="username">flex测试瀑布流文本</span></div>`;
+    }
+    // console.log(tempMasonry.innerHTML);
+    document.getElementById('masonry-flex-container').innerHTML = tempHtml;
+
+    tempHtml = '';
+    for (let i = 0; i < 10; i++) {
+      tempHtml +=
+        `<div class="masonry-js-item"><img src="../../assets/images/masonry/test-${i<9?'0'+(i+1):i+1}.jpg"><span class="username">js测试瀑布流文本</span></div>`;
+    }
+    // console.log(tempMasonry.innerHTML);
+    document.getElementById('masonry-js-container').innerHTML = tempHtml;
+
+    waterfall("masonry-js-container", "masonry-js-item");
+
+    function waterfall(parent, box) {
+      //获取masonry-container下所有class为masonry-item的元素
+      var oParent = document.getElementById(parent);
+      var oBoxs = getByClass(oParent, box);
+      //获取列数
+      var oBoxW = oBoxs[0].offsetWidth;
+      // console.log(document.documentElement.clientWidth)
+      var cols = parseInt(screen.availWidth / oBoxW);
+      oParent.style.cssText = "width:" + oBoxW * cols + "px;margin:0 auto"
+      var hArr = []; //存放每列图片高度
+      for (let i = 0; i < oBoxs.length; i++) {
+        if (i < cols) {
+          hArr.push(oBoxs[i].offsetHeight)
+        } else {
+          var minH = Math.min.apply(null, hArr);
+          var index = getMinhIndex(hArr, minH);
+          oBoxs[i].style.position = 'absolute';
+          oBoxs[i].style.top = minH + 'px';
+          oBoxs[i].style.left = oBoxW * index + 'px';
+          hArr[index] += oBoxs[i].offsetHeight;
+        }
+      }
+    }
+
+    //根据class获取元素
+    function getByClass(parent, clsName) {
+      var boxArr = [];
+      var oElements = parent.getElementsByTagName('*');
+      for (let item of oElements) {
+        if (item.className == clsName) {
+          boxArr.push(item)
+        }
+      }
+      return boxArr;
+    }
+
+    function getMinhIndex(arr, val) {
+      for (var i in arr) {
+        if (arr[i] == val)
+          return i;
+      }
+    }
   </script>
 </body>
 
