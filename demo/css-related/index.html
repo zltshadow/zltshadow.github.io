@@ -397,8 +397,14 @@
       width: 60%;
     }
 
+    .masonry-text {
+      display: block;
+    }
+
     #masonry-multi-column-container {
-      column-count: 2;
+      column-count: 4;
+      break-inside: void;
+      column-gap: 20px;
     }
 
     .masonry-multi-column-item {
@@ -417,16 +423,29 @@
     }
 
     .masonry-flex-item {
-      width: calc(100%/2 - 20px);
+      width: calc(100%/4 - 20px);
       flex-direction: column;
-    }
-
-    .masonry-flex-item:nth-of-type(2n+1) {
       margin-right: 20px;
     }
 
     .masonry-flex-item img {
       width: 100%;
+    }
+
+    #masonry-grid-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      column-gap: 20px;
+    }
+
+    #masonry-js-container {
+      position: relative;
+    }
+
+    .masonry-js-item {
+      float: left;
+      width: 200px;
+      padding-right: 20px;
     }
   </style>
 </head>
@@ -585,6 +604,8 @@
       <div class="masonry-container" id="masonry-multi-column-container"></div>
       <h4>flex方式</h4>
       <div class="masonry-container" id="masonry-flex-container"></div>
+      <h4>grid方式</h4>
+      <div class="masonry-container" id="masonry-grid-container"></div>
       <h4>js方式</h4>
       <div class="masonry-container" id="masonry-js-container"></div>
     </li>
@@ -616,92 +637,107 @@
     </li>
   </ul>
   <script>
-    //sticky-footerJS部分
-    let addBtn = document.getElementById('sticky-footer-add')
-    let clearBtn = document.getElementById('sticky-footer-clear')
-    let content = document.getElementById('sticky-footer-content')
-    addBtn.addEventListener('click', () => {
-      let p = document.createElement('p')
-      p.innerText = '内容逐渐变多了'
-      content.append(p)
-    })
-    clearBtn.addEventListener('click', () => {
-      content.innerHTML = '<p>这里是内容</p>'
-    })
-    // 星星评分
-    document.getElementById('score-count').addEventListener('change', function (e) {
-      let score = e.target.value;
-      if (score >= 0 && score <= 5) {
-        document.getElementsByClassName('score-show')[0].style.width = score / 5 * 100 + '%';
-      }
-    })
-    // 瀑布流布局
-    let tempHtml = '';
-    for (let i = 0; i < 10; i++) {
-      tempHtml +=
-        `<div class="masonry-multi-column-item"><img src="../../assets/images/masonry/test-${i<9?'0'+(i+1):i+1}.jpg"><span class="username">多行测试瀑布流文本</span></div>`;
-    }
-    // console.log(tempMasonry.innerHTML);
-    document.getElementById('masonry-multi-column-container').innerHTML = tempHtml;
-
-    tempHtml = '';
-    for (let i = 0; i < 10; i++) {
-      tempHtml +=
-        `<div class="masonry-flex-item"><img src="../../assets/images/masonry/test-${i<9?'0'+(i+1):i+1}.jpg"><span class="username">flex测试瀑布流文本</span></div>`;
-    }
-    // console.log(tempMasonry.innerHTML);
-    document.getElementById('masonry-flex-container').innerHTML = tempHtml;
-
-    tempHtml = '';
-    for (let i = 0; i < 10; i++) {
-      tempHtml +=
-        `<div class="masonry-js-item"><img src="../../assets/images/masonry/test-${i<9?'0'+(i+1):i+1}.jpg"><span class="username">js测试瀑布流文本</span></div>`;
-    }
-    // console.log(tempMasonry.innerHTML);
-    document.getElementById('masonry-js-container').innerHTML = tempHtml;
-
-    waterfall("masonry-js-container", "masonry-js-item");
-
-    function waterfall(parent, box) {
-      //获取masonry-container下所有class为masonry-item的元素
-      var oParent = document.getElementById(parent);
-      var oBoxs = getByClass(oParent, box);
-      //获取列数
-      var oBoxW = oBoxs[0].offsetWidth;
-      // console.log(document.documentElement.clientWidth)
-      var cols = parseInt(screen.availWidth / oBoxW);
-      oParent.style.cssText = "width:" + oBoxW * cols + "px;margin:0 auto"
-      var hArr = []; //存放每列图片高度
-      for (let i = 0; i < oBoxs.length; i++) {
-        if (i < cols) {
-          hArr.push(oBoxs[i].offsetHeight)
-        } else {
-          var minH = Math.min.apply(null, hArr);
-          var index = getMinhIndex(hArr, minH);
-          oBoxs[i].style.position = 'absolute';
-          oBoxs[i].style.top = minH + 'px';
-          oBoxs[i].style.left = oBoxW * index + 'px';
-          hArr[index] += oBoxs[i].offsetHeight;
+    window.onload = function () {
+      //sticky-footerJS部分
+      let addBtn = document.getElementById('sticky-footer-add')
+      let clearBtn = document.getElementById('sticky-footer-clear')
+      let content = document.getElementById('sticky-footer-content')
+      addBtn.addEventListener('click', () => {
+        let p = document.createElement('p')
+        p.innerText = '内容逐渐变多了'
+        content.append(p)
+      })
+      clearBtn.addEventListener('click', () => {
+        content.innerHTML = '<p>这里是内容</p>'
+      })
+      // 星星评分
+      document.getElementById('score-count').addEventListener('change', function (e) {
+        let score = e.target.value;
+        if (score >= 0 && score <= 5) {
+          document.getElementsByClassName('score-show')[0].style.width = score / 5 * 100 + '%';
         }
+      })
+      // 瀑布流布局
+      let tempHtml = '';
+      for (let i = 0; i < 10; i++) {
+        tempHtml +=
+          `<div class="masonry-multi-column-item"><img src="../../assets/images/masonry/test-${i<9?'0'+(i+1):i+1}.jpg"><span class="masonry-text">多行测试瀑布流文本</span></div>`;
       }
-    }
+      // console.log(tempMasonry.innerHTML);
+      document.getElementById('masonry-multi-column-container').innerHTML = tempHtml;
 
-    //根据class获取元素
-    function getByClass(parent, clsName) {
-      var boxArr = [];
-      var oElements = parent.getElementsByTagName('*');
-      for (let item of oElements) {
-        if (item.className == clsName) {
-          boxArr.push(item)
+      tempHtml = '';
+      for (let i = 0; i < 10; i++) {
+        tempHtml +=
+          `<div class="masonry-flex-item"><img src="../../assets/images/masonry/test-${i<9?'0'+(i+1):i+1}.jpg"><span class="masonry-text">flex测试瀑布流文本</span></div>`;
+      }
+      // console.log(tempMasonry.innerHTML);
+      document.getElementById('masonry-flex-container').innerHTML = tempHtml;
+
+      tempHtml = '';
+      for (let i = 0; i < 10; i++) {
+        tempHtml +=
+          `<div class="masonry-grid-item"><img src="../../assets/images/masonry/test-${i<9?'0'+(i+1):i+1}.jpg"><span class="masonry-text">grid测试瀑布流文本</span></div>`;
+      }
+      // console.log(tempMasonry.innerHTML);
+      document.getElementById('masonry-grid-container').innerHTML = tempHtml;
+
+      tempHtml = '';
+      for (let i = 0; i < 10; i++) {
+        tempHtml +=
+          `<div class="masonry-js-item"><img src="../../assets/images/masonry/test-${i<9?'0'+(i+1):i+1}.jpg"><span class="masonry-text">js测试瀑布流文本</span></div>`;
+      }
+      // console.log(tempMasonry.innerHTML);
+      document.getElementById('masonry-js-container').innerHTML = tempHtml;
+      // console.log(document.getElementsByClassName('masonry-js-item')[0].offsetHeight)
+      //等图片加载完再获取高度
+      setTimeout(function () {
+        waterfall("masonry-js-container", "masonry-js-item");
+      }, 1000);
+
+      function waterfall(parent, box) {
+        //获取masonry-container下所有class为masonry-item的元素
+        var oParent = document.getElementById(parent);
+        var oBoxs = getByClass(oParent, box);
+        //获取列数
+        var oBoxW = oBoxs[0].offsetWidth;
+        // console.log(document.documentElement.clientWidth)
+        var cols = parseInt(document.documentElement.clientWidth / oBoxW);
+        oParent.style.cssText = "width:" + oBoxW * cols + "px;"
+        var hArr = []; //存放每列图片高度
+        for (let i = 0; i < oBoxs.length; i++) {
+          if (i < cols) {
+            hArr.push(oBoxs[i].offsetHeight)
+          } else {
+            var minH = Math.min.apply(null, hArr);
+            var index = getMinhIndex(hArr, minH);
+            oBoxs[i].style.position = 'absolute';
+            oBoxs[i].style.top = minH + 'px';
+            oBoxs[i].style.left = oBoxW * index + 'px';
+            hArr[index] += oBoxs[i].offsetHeight;
+          }
         }
+        var maxH = Math.max.apply(null, hArr);
+        oParent.style.height = maxH+'px';
       }
-      return boxArr;
-    }
 
-    function getMinhIndex(arr, val) {
-      for (var i in arr) {
-        if (arr[i] == val)
-          return i;
+      //根据class获取元素
+      function getByClass(parent, clsName) {
+        var boxArr = [];
+        var oElements = parent.getElementsByTagName('*');
+        for (let item of oElements) {
+          if (item.className == clsName) {
+            boxArr.push(item)
+          }
+        }
+        return boxArr;
+      }
+
+      function getMinhIndex(arr, val) {
+        for (var i in arr) {
+          if (arr[i] == val)
+            return i;
+        }
       }
     }
   </script>
