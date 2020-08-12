@@ -447,6 +447,94 @@
       width: 200px;
       padding-right: 20px;
     }
+
+    /*假设一个小球来回滚动，每次在两边时停留800ms再继续滚动，我们可以由以下动画控制*/
+    .animation-ball {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: orange;
+      /*alternate 设置来回滚动*/
+      animation: animation-ball-move 2000ms infinite alternate;
+    }
+
+    @keyframes animation-ball-move {
+
+      0% {
+        transform: translateX(0);
+        /*重复关键帧模拟延迟，2000ms × .4 = 800ms*/
+      }
+
+      100% {
+        transform: translateX(250px);
+        /*重复关键帧模拟延迟，2000ms × .4 = 800ms*/
+      }
+    }
+
+    .polling_message {
+      color: white;
+      float: left;
+      margin-right: 2%;
+    }
+
+    .view_port {
+      background-color: black;
+      height: 25px;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .cylon_eye {
+      background-color: red;
+      background-image: linear-gradient(to right,
+          rgba(0, 0, 0, .9) 25%,
+          rgba(0, 0, 0, .1) 50%,
+          rgba(0, 0, 0, .9) 75%);
+      color: white;
+      height: 100%;
+      width: 20%;
+
+      -webkit-animation: 4s linear 0s infinite alternate move_eye;
+      animation: 4s linear 0s infinite alternate move_eye;
+    }
+
+    @-webkit-keyframes move_eye {
+      0% {
+        margin-left: -20%;
+      }
+
+      100% {
+        margin-left: 100%;
+      }
+    }
+
+    @keyframes move_eye {
+      0% {
+        margin-left: -20%;
+      }
+
+      100% {
+        margin-left: 100%;
+      }
+    }
+
+    .transition-demo-container {
+      width: 200px;
+      overflow: hidden;
+      height: 200px;
+    }
+
+    .transition-demo {
+      background: url(../../assets/images/masonry/test-01.jpg) no-repeat 100%;
+      transition: all 500ms linear 0s;
+      height: 200px;
+      width: 200px;
+    }
+
+    .transition-demo:hover {
+      /* transform: matrix(1, 2, -1, 1, 80, 80); */
+      transform: matrix(1.1, 0, 0, 1.1, 0, 0);
+    }
   </style>
 </head>
 
@@ -635,6 +723,22 @@
         <span class="right-triangle"></span>
       </div>
     </li>
+    <li>
+      <h3>3.css动画</h3>
+      <h4>会动的小球</h4>
+      <div class="animation-ball"></div>
+      <h4>赛隆人之眼</h4>
+      <div class="view_port">
+        <div class="polling_message">
+          Listening for dispatches
+        </div>
+        <div class="cylon_eye"></div>
+      </div>
+      <h4>trasition变化</h4>
+      <div class="transition-demo-container">
+        <div class="transition-demo"></div>
+      </div>
+    </li>
   </ul>
   <script>
     window.onload = function () {
@@ -718,7 +822,7 @@
           }
         }
         var maxH = Math.max.apply(null, hArr);
-        oParent.style.height = maxH+'px';
+        oParent.style.height = maxH + 'px';
       }
 
       //根据class获取元素
