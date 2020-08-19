@@ -525,7 +525,7 @@
     }
 
     .transition-demo {
-      background: url(../../assets/images/masonry/test-01.jpg) no-repeat 100%;
+      background: url(../../assets/images/css-related/masonry/test-01.jpg) no-repeat 100%;
       transition: all 500ms linear 0s;
       height: 200px;
       width: 200px;
@@ -534,6 +534,183 @@
     .transition-demo:hover {
       /* transform: matrix(1, 2, -1, 1, 80, 80); */
       transform: matrix(1.1, 0, 0, 1.1, 0, 0);
+    }
+
+    .bird-animation-container *,
+    .bird-animation-container *::before,
+    .bird-animation-container *::after {
+      box-sizing: border-box;
+    }
+
+    .bird-animation-container h1 {
+      font-family: 'Arima Madurai', cursive;
+      color: black;
+      font-size: 4rem;
+      letter-spacing: -3px;
+      text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.6);
+      position: relative;
+      z-index: 3;
+    }
+
+    .bird-animation-container {
+      z-index: 1;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 35rem;
+      background-image: linear-gradient(to bottom, rgba(255, 168, 76, 0.6) 0%, rgba(255, 123, 13, 0.6) 100%);
+      background-blend-mode: soft-light;
+      background-size: cover;
+      background-position: center center;
+      padding: 2rem;
+    }
+
+    .bird {
+      background-image: url('../../assets/images/css-related/animations/bird-cells-new.svg');
+      background-size: auto 100%;
+      width: 88px;
+      height: 125px;
+      will-change: background-position;
+
+      animation-name: fly-cycle;
+      animation-timing-function: steps(10);
+      animation-iteration-count: infinite;
+      animation-play-state: paused;
+    }
+
+    .bird--one {
+      animation-duration: 1s;
+      animation-delay: -0.5s;
+    }
+
+    .bird--two {
+      animation-duration: 0.9s;
+      animation-delay: -0.75s;
+    }
+
+    .bird--three {
+      animation-duration: 1.25s;
+      animation-delay: -0.25s;
+    }
+
+    .bird--four {
+      animation-duration: 1.1s;
+      animation-delay: -0.5s;
+    }
+
+    .bird-container {
+      position: absolute;
+      top: 20%;
+      left: -10%;
+      transform: scale(0) translateX(-10vw);
+      will-change: transform;
+
+      animation-name: fly-right-one;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      animation-play-state: paused;
+    }
+
+    .bird-container--one {
+      animation-duration: 15s;
+      animation-delay: 0;
+    }
+
+    .bird-container--two {
+      animation-duration: 16s;
+      animation-delay: 1s;
+    }
+
+    .bird-container--three {
+      animation-duration: 14.6s;
+      animation-delay: 9.5s;
+    }
+
+    .bird-container--four {
+      animation-duration: 16s;
+      animation-delay: 10.25s;
+    }
+
+    @keyframes fly-cycle {
+
+      100% {
+        background-position: -900px 0;
+      }
+
+    }
+
+    @keyframes fly-right-one {
+
+      0% {
+        transform: scale(0.3) translateX(-10vw);
+      }
+
+      10% {
+        transform: translateY(2vh) translateX(10vw) scale(0.4);
+      }
+
+      20% {
+        transform: translateY(0vh) translateX(30vw) scale(0.5);
+      }
+
+      30% {
+        transform: translateY(4vh) translateX(50vw) scale(0.6);
+      }
+
+      40% {
+        transform: translateY(2vh) translateX(70vw) scale(0.6);
+      }
+
+      50% {
+        transform: translateY(0vh) translateX(90vw) scale(0.6);
+      }
+
+      60% {
+        transform: translateY(0vh) translateX(110vw) scale(0.6);
+      }
+
+      100% {
+        transform: translateY(0vh) translateX(110vw) scale(0.6);
+      }
+
+    }
+
+    @keyframes fly-right-two {
+
+      0% {
+        transform: translateY(-2vh) translateX(-10vw) scale(0.5);
+      }
+
+      10% {
+        transform: translateY(0vh) translateX(10vw) scale(0.4);
+      }
+
+      20% {
+        transform: translateY(-4vh) translateX(30vw) scale(0.6);
+      }
+
+      30% {
+        transform: translateY(1vh) translateX(50vw) scale(0.45);
+      }
+
+      40% {
+        transform: translateY(-2.5vh) translateX(70vw) scale(0.5);
+      }
+
+      50% {
+        transform: translateY(0vh) translateX(90vw) scale(0.45);
+      }
+
+      51% {
+        transform: translateY(0vh) translateX(110vw) scale(0.45);
+      }
+
+      100% {
+        transform: translateY(0vh) translateX(110vw) scale(0.45);
+      }
+
     }
   </style>
 </head>
@@ -734,9 +911,28 @@
         </div>
         <div class="cylon_eye"></div>
       </div>
-      <h4>trasition变化</h4>
+      <h4>trasition变化(鼠标挪上去试试)</h4>
       <div class="transition-demo-container">
         <div class="transition-demo"></div>
+      </div>
+      <h4>飞鸟</h4>
+      <div>
+        <button class="bird-control-button">播放</button>
+      </div>
+      <div class="bird-animation-container">
+        <h1>SVG Animated Birds</h1>
+        <div class="bird-container bird-container--one">
+          <div class="bird bird--one"></div>
+        </div>
+        <div class="bird-container bird-container--two">
+          <div class="bird bird--two"></div>
+        </div>
+        <div class="bird-container bird-container--three">
+          <div class="bird bird--three"></div>
+        </div>
+        <div class="bird-container bird-container--four">
+          <div class="bird bird--four"></div>
+        </div>
       </div>
     </li>
   </ul>
@@ -765,7 +961,7 @@
       let tempHtml = '';
       for (let i = 0; i < 10; i++) {
         tempHtml +=
-          `<div class="masonry-multi-column-item"><img src="../../assets/images/masonry/test-${i<9?'0'+(i+1):i+1}.jpg"><span class="masonry-text">多行测试瀑布流文本</span></div>`;
+          `<div class="masonry-multi-column-item"><img src="../../assets/images/css-related/masonry/test-${i<9?'0'+(i+1):i+1}.jpg"><span class="masonry-text">多行测试瀑布流文本</span></div>`;
       }
       // console.log(tempMasonry.innerHTML);
       document.getElementById('masonry-multi-column-container').innerHTML = tempHtml;
@@ -773,7 +969,7 @@
       tempHtml = '';
       for (let i = 0; i < 10; i++) {
         tempHtml +=
-          `<div class="masonry-flex-item"><img src="../../assets/images/masonry/test-${i<9?'0'+(i+1):i+1}.jpg"><span class="masonry-text">flex测试瀑布流文本</span></div>`;
+          `<div class="masonry-flex-item"><img src="../../assets/images/css-related/masonry/test-${i<9?'0'+(i+1):i+1}.jpg"><span class="masonry-text">flex测试瀑布流文本</span></div>`;
       }
       // console.log(tempMasonry.innerHTML);
       document.getElementById('masonry-flex-container').innerHTML = tempHtml;
@@ -781,7 +977,7 @@
       tempHtml = '';
       for (let i = 0; i < 10; i++) {
         tempHtml +=
-          `<div class="masonry-grid-item"><img src="../../assets/images/masonry/test-${i<9?'0'+(i+1):i+1}.jpg"><span class="masonry-text">grid测试瀑布流文本</span></div>`;
+          `<div class="masonry-grid-item"><img src="../../assets/images/css-related/masonry/test-${i<9?'0'+(i+1):i+1}.jpg"><span class="masonry-text">grid测试瀑布流文本</span></div>`;
       }
       // console.log(tempMasonry.innerHTML);
       document.getElementById('masonry-grid-container').innerHTML = tempHtml;
@@ -789,7 +985,7 @@
       tempHtml = '';
       for (let i = 0; i < 10; i++) {
         tempHtml +=
-          `<div class="masonry-js-item"><img src="../../assets/images/masonry/test-${i<9?'0'+(i+1):i+1}.jpg"><span class="masonry-text">js测试瀑布流文本</span></div>`;
+          `<div class="masonry-js-item"><img src="../../assets/images/css-related/masonry/test-${i<9?'0'+(i+1):i+1}.jpg"><span class="masonry-text">js测试瀑布流文本</span></div>`;
       }
       // console.log(tempMasonry.innerHTML);
       document.getElementById('masonry-js-container').innerHTML = tempHtml;
@@ -844,6 +1040,32 @@
         }
       }
     }
+    // 飞鸟动画播放与否
+    document.querySelector('.bird-control-button').addEventListener('click', function () {
+      let btn = document.querySelector('.bird-control-button');
+      let birds = document.querySelectorAll('.bird');
+      let birdContainers = document.querySelectorAll('.bird-container');
+
+      let state = birds[0].style['animationPlayState'];
+
+      if (state === 'paused') {
+        for (let i = 0; i < birds.length; i++) {
+          let bird = birds[i];
+          let birdContainer = birdContainers[i]
+          bird.style['animationPlayState'] = 'running';
+          birdContainer.style['animationPlayState'] = 'running';
+        }
+        btn.innerText = '暂停';
+      } else {
+        for (let i = 0; i < birds.length; i++) {
+          let bird = birds[i];
+          let birdContainer = birdContainers[i]
+          bird.style['animationPlayState'] = 'paused';
+          birdContainer.style['animationPlayState'] = 'paused';
+        }
+        btn.innerText = '播放';
+      }
+    });
   </script>
 </body>
 
