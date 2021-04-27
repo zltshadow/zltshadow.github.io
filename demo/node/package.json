@@ -1,0 +1,19 @@
+{
+  "name": "koa-mini",
+  "version": "1.0.0",
+  "description": "A mini koa source code",
+  "main": "index.js",
+  "dependencies": {
+    "koa": "^2.13.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node index"
+  },
+  "keywords": [
+    "node",
+    "koa"
+  ],
+  "author": "zlt_shadow",
+  "license": "ISC"
+}
