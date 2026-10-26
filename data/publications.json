@@ -1,0 +1,328 @@
+[
+  {
+    "id": 1,
+    "authors": [
+      "Langtao Zhou",
+      "Tianyu Fu*",
+      "Jieliang Shi",
+      "Long Shao",
+      "Te Zheng",
+      "Danni Ai",
+      "Jingfan Fan",
+      "Deqiang Xiao",
+      "Hong Song",
+      "Wencan Wu*",
+      "Jian Yang*"
+    ],
+    "title": "Synergizing SAM2 and U-Mamba as mutual teachers in a dual-branch dynamic knowledge transfer network for orbital segmentation",
+    "citation": "IEEE Transactions on Image Processing, 2026.",
+    "year": 2026,
+    "venue_short": "TIP",
+    "status": "Accepted",
+    "lead": true,
+    "code": "https://github.com/zltshadow/DDKTN"
+  },
+  {
+    "id": 2,
+    "authors": [
+      "Langtao Zhou#",
+      "Xiaoxia Qu#",
+      "Tianyu Fu*",
+      "Jiaoyang Wu",
+      "Hong Song",
+      "Jingfan Fan",
+      "Danni Ai",
+      "Deqiang Xiao",
+      "Junfang Xian*",
+      "Jian Yang*"
+    ],
+    "title": "Anatomy-aware sketch-guided latent diffusion model for orbital tumor multi-parametric MRI missing modalities synthesis",
+    "citation": "IEEE Transactions on Medical Imaging, 2026, 45(5): 2140–2155.",
+    "year": 2026,
+    "venue_short": "TMI",
+    "status": "Published",
+    "lead": true,
+    "code": "https://github.com/zltshadow/ASLDM"
+  },
+  {
+    "id": 3,
+    "authors": [
+      "Langtao Zhou#",
+      "Jieliang Shi#",
+      "Tianyu Fu*",
+      "Jiaju Zhang",
+      "Yangrui Huang",
+      "Yiyang Mao",
+      "Bangxun Mao",
+      "Long Shao",
+      "Te Zheng",
+      "Danni Ai",
+      "Jingfan Fan",
+      "Deqiang Xiao",
+      "Hong Song",
+      "Jinying Zhang",
+      "Wencan Wu*",
+      "Jian Yang*"
+    ],
+    "title": "Anatomical-persistent synergy mamba for joint pre-to-postoperative CT synthesis and multi-structure segmentation in orbital decompression surgery",
+    "citation": "IEEE Journal of Biomedical and Health Informatics, 2026: 1–15.",
+    "year": 2026,
+    "venue_short": "JBHI",
+    "status": "Published",
+    "lead": true,
+    "code": null
+  },
+  {
+    "id": 4,
+    "authors": [
+      "Langtao Zhou",
+      "Tianyu Fu*",
+      "Xiaoxia Qu*",
+      "Jiaoyang Wu",
+      "Yangrui Huang",
+      "Hong Song",
+      "Jingfan Fan",
+      "Danni Ai",
+      "Deqiang Xiao",
+      "Junfang Xian*",
+      "Jian Yang*"
+    ],
+    "title": "Multimodal hybrid mamba classification model for tumor pathological grade prediction using magnetic resonance images",
+    "citation": "Neural Networks, 2026, 198: 108726.",
+    "year": 2026,
+    "venue_short": "Neural Networks",
+    "status": "Published",
+    "lead": true,
+    "code": "https://github.com/zltshadow/MSHM"
+  },
+  {
+    "id": 5,
+    "authors": [
+      "Langtao Zhou",
+      "Huiting Wu",
+      "Guanghua Luo*",
+      "Hong Zhou*"
+    ],
+    "title": "Deep learning-based 3D cerebrovascular segmentation workflow on bright and black blood sequences magnetic resonance angiography",
+    "citation": "Insights into Imaging, 2024, 15(1): 81.",
+    "year": 2024,
+    "venue_short": "Insights into Imaging",
+    "status": "Published",
+    "lead": true,
+    "code": null
+  },
+  {
+    "id": 6,
+    "authors": [
+      "Langtao Zhou",
+      "Huiting Wu*",
+      "Hong Zhou*"
+    ],
+    "title": "Correlation between cognitive impairment and lenticulostriate arteries: a clinical and radiomics analysis",
+    "citation": "Journal of Imaging Informatics in Medicine, 2024, 37(4): 1261–1272.",
+    "year": 2024,
+    "venue_short": "JIIM",
+    "status": "Published",
+    "lead": true,
+    "code": null
+  },
+  {
+    "id": 7,
+    "authors": [
+      "Jia Deng#",
+      "Langtao Zhou#",
+      "Yifeng Peng",
+      "Yueyan Li*",
+      "Hong Zhou*"
+    ],
+    "title": "A contrastive learning network for reducing metal artifacts in post-surgical knee computed tomography",
+    "citation": "Radiation Physics and Chemistry, 2025, 236: 112971.",
+    "year": 2025,
+    "venue_short": "Radiation Physics and Chemistry",
+    "status": "Published",
+    "lead": true,
+    "code": null
+  },
+  {
+    "id": 8,
+    "authors": [
+      "Jia Deng#",
+      "Langtao Zhou#",
+      "Yueyan Li",
+      "Ying Yu",
+      "Jingjing Zhang",
+      "Bihong Liao",
+      "Guanghua Luo",
+      "Jinwei Tian*",
+      "Hong Zhou*",
+      "Huifang Tang*"
+    ],
+    "title": "Integration of cine-cardiac magnetic resonance radiomics and machine learning for differentiating ischemic and dilated cardiomyopathy",
+    "citation": "Academic Radiology, 2024, 31(7): 2704–2714.",
+    "year": 2024,
+    "venue_short": "Academic Radiology",
+    "status": "Published",
+    "lead": true,
+    "code": null
+  },
+  {
+    "id": 9,
+    "authors": [
+      "Jia Deng#",
+      "Langtao Zhou#",
+      "Bihong Liao#",
+      "Qinxi Cai",
+      "Guanghua Luo*",
+      "Hong Zhou*",
+      "Huifang Tang*"
+    ],
+    "title": "Challenges in clinical translation of cardiac magnetic resonance imaging radiomics in non-ischemic cardiomyopathy: a narrative review",
+    "citation": "Cardiovascular Diagnosis and Therapy, 2024, 14(6): 1210–1227.",
+    "year": 2024,
+    "venue_short": "CDT",
+    "status": "Published",
+    "lead": true,
+    "code": null
+  },
+  {
+    "id": 10,
+    "authors": [
+      "Langtao Zhou",
+      "Zhenhua Li*"
+    ],
+    "title": "Automatic multi-label temporal bone computed tomography segmentation with deep learning",
+    "citation": "International Journal of Medical Robotics and Computer Assisted Surgery, 2023, 19(5): e2536.",
+    "year": 2023,
+    "venue_short": "IJMRCAS",
+    "status": "Published",
+    "lead": true,
+    "code": null
+  },
+  {
+    "id": 11,
+    "authors": [
+      "Zhenhua Li#",
+      "Langtao Zhou#",
+      "Songhua Tan",
+      "Anzhou Tang*"
+    ],
+    "title": "Application of UNETR for automatic cochlear segmentation in temporal bone CTs",
+    "citation": "Auris, Nasus, Larynx, 2023, 50(2): 212–217.",
+    "year": 2023,
+    "venue_short": "Auris Nasus Larynx",
+    "status": "Published",
+    "lead": true,
+    "code": null
+  },
+  {
+    "id": 12,
+    "authors": [
+      "Yan Wang",
+      "Jia Deng",
+      "Zhaojie Peng",
+      "Yule Zeng",
+      "Jikang Jiang",
+      "Langtao Zhou*",
+      "Zisan Zeng*",
+      "Hong Zhou*"
+    ],
+    "title": "DuDoTransGAN: dual-domain transformer based generative adversarial unsupervised network for metal artifact reduction in paired and unpaired CT",
+    "citation": "European Journal of Radiology, 2026, 205: 113289.",
+    "year": 2026,
+    "venue_short": "European Journal of Radiology",
+    "status": "Published",
+    "lead": true,
+    "code": null
+  },
+  {
+    "id": 13,
+    "authors": [
+      "Zhenhua Li#",
+      "Jia Deng#",
+      "Langtao Zhou",
+      "Sining Wu",
+      "Chuwei Ma",
+      "Yating Liao",
+      "Bin Liu*",
+      "Yilai Shu*"
+    ],
+    "title": "A hybrid Mamba-CNN model for automated diagnosis of middle ear cholesteatoma in 3D temporal bone CT",
+    "citation": "Quantitative Imaging in Medicine and Surgery, 2026.",
+    "year": 2026,
+    "venue_short": "QIMS",
+    "status": "Accepted",
+    "lead": false,
+    "code": null
+  },
+  {
+    "id": 14,
+    "authors": [
+      "Zhenhua Li",
+      "Langtao Zhou",
+      "Xiang Bin",
+      "Bin Liu",
+      "Anzhou Tang",
+      "Songhua Tan*"
+    ],
+    "title": "Deep learning for discriminating cochlear malformations on temporal bone CT",
+    "citation": "Brazilian Journal of Otorhinolaryngology, 2026, 92(4): 101811.",
+    "year": 2026,
+    "venue_short": "BJORL",
+    "status": "Published",
+    "lead": false,
+    "code": null
+  },
+  {
+    "id": 15,
+    "authors": [
+      "Zhenhua Li",
+      "Langtao Zhou",
+      "Songhua Tan",
+      "Bin Liu",
+      "Yu Xiao",
+      "Anzhou Tang*"
+    ],
+    "title": "Utilizing deep learning for automatic segmentation of the cochleae in temporal bone computed tomography",
+    "citation": "Acta Radiologica, 2025, 66(3): 305–311.",
+    "year": 2025,
+    "venue_short": "Acta Radiologica",
+    "status": "Published",
+    "lead": false,
+    "code": null
+  },
+  {
+    "id": 16,
+    "authors": [
+      "Zhenhua Li",
+      "Langtao Zhou",
+      "Xiang Bin",
+      "Songhua Tan",
+      "Zhiqiang Tan",
+      "Anzhou Tang*"
+    ],
+    "title": "Utility of deep learning for the diagnosis of cochlear malformation on temporal bone CT",
+    "citation": "Japanese Journal of Radiology, 2024, 42(3): 261–267.",
+    "year": 2024,
+    "venue_short": "Japanese Journal of Radiology",
+    "status": "Published",
+    "lead": false,
+    "code": null
+  },
+  {
+    "id": 17,
+    "authors": [
+      "Jiaoyang Wu",
+      "Langtao Zhou",
+      "Tianyu Fu*",
+      "Xiaoxia Qu*",
+      "Jian Yang"
+    ],
+    "title": "A dual-branch contrastive network using symmetric counterfactual generation for multi-modal ocular adnexal lymphoma segmentation",
+    "citation": "In: 2025 IEEE International Conference on Bioinformatics and Biomedicine (BIBM), 2025: 4253–4256.",
+    "year": 2025,
+    "venue_short": "BIBM",
+    "status": "Published",
+    "lead": false,
+    "code": null
+  }
+]

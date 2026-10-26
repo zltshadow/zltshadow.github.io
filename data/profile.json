@@ -1,0 +1,18 @@
+{
+  "name": "Langtao Zhou",
+  "name_zh": "周浪涛",
+  "role": "Ph.D. student in Optical Engineering",
+  "institution": "Beijing Institute of Technology",
+  "school": "School of Optics and Electronics",
+  "location": "Beijing, China",
+  "email": "zlt_shadow@163.com",
+  "github": "https://github.com/zltshadow",
+  "orcid": "https://orcid.org/0000-0002-4290-867X",
+  "researchgate": "https://www.researchgate.net/profile/Langtao-Zhou",
+  "updated": "October 2026",
+  "education": [
+    {"years": "2024 — Present", "institution": "Beijing Institute of Technology", "degree": "Ph.D. student, Optical Engineering", "institution_zh": "北京理工大学 · 光学工程博士在读"},
+    {"years": "2021 — 2024", "institution": "Guangzhou University", "degree": "Master’s degree, Cyberspace Security", "institution_zh": "广州大学 · 网络空间安全硕士"},
+    {"years": "2013 — 2017", "institution": "Beijing Technology and Business University", "degree": "Bachelor’s degree, Information Engineering", "institution_zh": "北京工商大学 · 信息工程本科"}
+  ]
+}
